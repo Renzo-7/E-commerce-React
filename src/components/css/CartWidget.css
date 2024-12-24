@@ -22,7 +22,7 @@
   font-weight: bold;
 }
 
-.button {
-  background: none !important;
-  border: none !important;
+button.button {
+  background: none;
+  border: none;
 }

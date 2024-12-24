@@ -1,5 +1,6 @@
 import React from "react";
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -9,9 +10,9 @@ const NavBar = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-item" href="#inicio">
+        <Link className="navbar-item" to="/">
           <strong>Infinity Stones</strong>
-        </a>
+        </Link>
         <a
           role="button"
           className="navbar-burger"
@@ -27,15 +28,18 @@ const NavBar = () => {
 
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
-          <a className="navbar-item" href="#inicio">
+          <Link className="navbar-item" to="/">
             Inicio
-          </a>
-          <a className="navbar-item" href="#productos">
-            Productos
-          </a>
-          <a className="navbar-item" href="#contacto">
-            Contacto
-          </a>
+          </Link>
+          <Link className="navbar-item" to="/category/ropa">
+            Ropa
+          </Link>
+          <Link className="navbar-item" to="/category/figuras">
+            Figuras
+          </Link>
+          <Link className="navbar-item" to="/category/accesorios">
+            Accesorios
+          </Link>
         </div>
 
         <div className="navbar-end">
