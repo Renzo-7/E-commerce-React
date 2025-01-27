@@ -5,7 +5,8 @@ const products = [
     category: "ropa",
     price: 1500,
     description: "Camiseta temática de Spider-Man.",
-    image: "https://via.placeholder.com/150?text=Spider-Man",
+    image:
+      "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1737990924970-77ff45443a59image",
   },
   {
     id: "2",
@@ -13,7 +14,8 @@ const products = [
     category: "figuras",
     price: 3500,
     description: "Figura de colección de Iron Man.",
-    image: "https://via.placeholder.com/150?text=Iron+Man",
+    image:
+      "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1737990931948-1cc67c908374image",
   },
   {
     id: "3",
@@ -21,7 +23,8 @@ const products = [
     category: "accesorios",
     price: 2500,
     description: "Mochila con diseño de los Avengers.",
-    image: "https://via.placeholder.com/150?text=Avengers",
+    image:
+      "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1737990959010-3414f8529af4image",
   },
   {
     id: "4",
@@ -29,7 +32,8 @@ const products = [
     category: "figuras",
     price: 3000,
     description: "Figura de colección de Thor con el Mjolnir.",
-    image: "https://via.placeholder.com/150?text=Thor",
+    image:
+      "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1737990939843-ac21ecb8342cimage",
   },
   {
     id: "5",
@@ -37,7 +41,8 @@ const products = [
     category: "accesorios",
     price: 1200,
     description: "Gorra del escudo del Capitán América.",
-    image: "https://via.placeholder.com/150?text=Cap+America",
+    image:
+      "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1737990952426-917b6f6761ccimage",
   },
 ];
 

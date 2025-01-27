@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getProducts, getProductsByCategory } from "../asyncMocks";
+import Item from "./item";
 
 const ItemListContainer = ({ greeting }) => {
   const { id } = useParams();
@@ -38,18 +39,13 @@ const ItemListContainer = ({ greeting }) => {
         <div className="columns is-multiline is-centered">
           {products.map((product) => (
             <div key={product.id} className="column is-one-quarter">
-              <div className="card">
-                <div className="card-image">
-                  <figure className="image">
-                    <img src={product.image} alt={product.name} />
-                  </figure>
-                </div>
-                <div className="card-content">
-                  <h3 className="title is-5">{product.name}</h3>
-                  <p className="subtitle is-6">{product.description}</p>
-                  <p className="has-text-weight-bold">${product.price}</p>
-                </div>
-              </div>
+              <Item
+                id={product.id}
+                name={product.name}
+                description={product.description}
+                price={product.price}
+                image={product.image}
+              />
             </div>
           ))}
         </div>
