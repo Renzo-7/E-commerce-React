@@ -1,21 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
+import { CartContext } from "./CartContext";
 import "./css/CartWidget.css";
 
 const CartWidget = () => {
-  const numeroHardcodeado = 5;
+  const { totalItems } = useContext(CartContext);
 
   return (
-    <div className="cart-widget">
-      <button className="button">
-        <FaCartShopping size={24} />
-        {numeroHardcodeado > 0 && (
-          <span className="notification is-primary is-small">
-            {numeroHardcodeado}
-          </span>
-        )}
-      </button>
-    </div>
+    <Link to="/checkout" className="cart-widget">
+      <FaCartShopping size={24} />
+      {totalItems > 0 && <span className="cart-count">{totalItems}</span>}
+    </Link>
   );
 };
 

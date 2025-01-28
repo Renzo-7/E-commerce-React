@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../asyncMocks";
+import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -29,12 +30,7 @@ const ItemDetailContainer = () => {
       {loading ? (
         <p>Cargando detalle del producto...</p>
       ) : product ? (
-        <div>
-          <h2 className="title is-3">{product.name}</h2>
-          <img src={product.image} alt={product.name} />
-          <p>{product.description}</p>
-          <p className="has-text-weight-bold">Precio: ${product.price}</p>
-        </div>
+        <ItemDetail product={product} />
       ) : (
         <p>Producto no encontrado.</p>
       )}
