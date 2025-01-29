@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProducts, getProductsByCategory } from "../asyncMocks";
+import { getProducts, getProductsByCategory } from "../../config/services";
 import Item from "./item";
 
 const ItemListContainer = ({ greeting }) => {
@@ -32,7 +32,7 @@ const ItemListContainer = ({ greeting }) => {
 
   return (
     <div className="box">
-      <h2 className="title is-4 has-text-primary-light">{greeting}</h2>
+      <h2 className="title is-4 has-text-link-light">{greeting}</h2>
       {loading ? (
         <p>Cargando productos...</p>
       ) : products.length ? (

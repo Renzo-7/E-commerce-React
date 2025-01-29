@@ -1,11 +1,11 @@
 import React from "react";
-import CartWidget from "./CartWidget";
+import CartWidget from "./cart/CartWidget";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <nav
-      className="navbar is-primary"
+      className="navbar is-link"
       role="navigation"
       aria-label="main navigation"
     >

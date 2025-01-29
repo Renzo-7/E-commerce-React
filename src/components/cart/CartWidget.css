@@ -10,11 +10,6 @@
   font-size: 20px;
 }
 
-button.button {
-  background: none;
-  border: none;
-}
-
 .cart-count {
   position: absolute;
   top: -8px;

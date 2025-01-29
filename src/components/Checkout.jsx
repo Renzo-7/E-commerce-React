@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../config/firebase";
-import { CartContext } from "./CartContext";
+import { CartContext } from "./cart/CartContext";
 
 const Checkout = () => {
   const { cart, totalPrice, clearCart } = useContext(CartContext);
@@ -15,6 +15,7 @@ const Checkout = () => {
 
   const [orderId, setOrderId] = useState(null);
   const [error, setError] = useState("");
+  const [orderDetails, setOrderDetails] = useState(null);
 
   const handleInputChange = (e) => {
     setBuyer({ ...buyer, [e.target.name]: e.target.value });
@@ -53,6 +54,7 @@ const Checkout = () => {
     try {
       const docRef = await addDoc(collection(db, "Orders"), newOrder);
       setOrderId(docRef.id);
+      setOrderDetails(newOrder);
       clearCart();
     } catch (error) {
       console.error("Error al guardar la orden:", error);
@@ -61,84 +63,83 @@ const Checkout = () => {
 
   return (
     <div className="box">
-      <h2 className="title is-4">Checkout</h2>
-      {orderId ? (
-        <p className="notification is-success">
-          ¡Gracias por tu compra! Tu número de orden es:{" "}
-          <strong>{orderId}</strong>
-        </p>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <div className="field">
-            <label className="label">Nombre</label>
-            <div className="control">
+      {!orderId ? (
+        <>
+          <h2 className="title is-4">Finalizar Compra</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="field">
+              <label className="label">Nombre</label>
               <input
                 className="input"
                 type="text"
                 name="name"
-                placeholder="Nombre"
                 value={buyer.name}
                 onChange={handleInputChange}
               />
             </div>
-          </div>
-          <div className="field">
-            <label className="label">Apellido</label>
-            <div className="control">
+            <div className="field">
+              <label className="label">Apellido</label>
               <input
                 className="input"
                 type="text"
                 name="lastName"
-                placeholder="Apellido"
                 value={buyer.lastName}
                 onChange={handleInputChange}
               />
             </div>
-          </div>
-          <div className="field">
-            <label className="label">Teléfono</label>
-            <div className="control">
+            <div className="field">
+              <label className="label">Teléfono</label>
               <input
                 className="input"
                 type="text"
                 name="phone"
-                placeholder="Teléfono"
                 value={buyer.phone}
                 onChange={handleInputChange}
               />
             </div>
-          </div>
-          <div className="field">
-            <label className="label">Email</label>
-            <div className="control">
+            <div className="field">
+              <label className="label">Email</label>
               <input
                 className="input"
                 type="email"
                 name="email"
-                placeholder="Correo electrónico"
                 value={buyer.email}
                 onChange={handleInputChange}
               />
             </div>
-          </div>
-          <div className="field">
-            <label className="label">Confirmar Email</label>
-            <div className="control">
+            <div className="field">
+              <label className="label">Confirmar Email</label>
               <input
                 className="input"
                 type="email"
                 name="confirmEmail"
-                placeholder="Confirma tu correo"
                 value={buyer.confirmEmail}
                 onChange={handleInputChange}
               />
             </div>
-          </div>
-          {error && <p className="has-text-danger">{error}</p>}
-          <button type="submit" className="button">
-            Realizar compra
-          </button>
-        </form>
+            {error && <p className="has-text-danger">{error}</p>}
+            <button className="button is-primary">Realizar compra</button>
+          </form>
+        </>
+      ) : (
+        <div>
+          <h2 className="title is-4 has-text-success">
+            ¡Compra realizada con éxito!
+          </h2>
+          <p>
+            Tu número de orden es: <strong>{orderId}</strong>
+          </p>
+
+          <h3 className="title is-5">Resumen de compra:</h3>
+          <ul>
+            {orderDetails.items.map((item) => (
+              <li key={item.id}>
+                {item.name} - {item.quantity} x ${item.price}
+              </li>
+            ))}
+          </ul>
+          <p className="has-text-weight-bold">Total: ${orderDetails.total}</p>
+        </div>
       )}
     </div>
   );

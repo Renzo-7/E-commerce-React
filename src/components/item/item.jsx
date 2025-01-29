@@ -13,7 +13,7 @@ const Item = ({ id, name, price, image }) => {
       <div className="card-content">
         <h3 className="title is-5">{name}</h3>
         <p className="subtitle is-6 has-text-weight-bold">Precio: ${price}</p>
-        <Link to={`/item/${id}`} className="button is-primary is-light">
+        <Link to={`/item/${id}`} className="button is-white">
           Ver Detalles
         </Link>
       </div>

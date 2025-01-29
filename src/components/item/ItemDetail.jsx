@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
-import { CartContext } from "./CartContext";
+import { CartContext } from "../cart/CartContext";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ product }) => {
   const { addToCart } = useContext(CartContext);
@@ -50,9 +51,15 @@ const ItemDetail = ({ product }) => {
         </button>
       </div>
 
-      <button className="button is-fullwidth mt-3" onClick={handleAddToCart}>
+      <button
+        className="button is-danger is-fullwidth mt-3"
+        onClick={handleAddToCart}
+      >
         Agregar al carrito
       </button>
+      <Link className="button is-light mt-3" to="/">
+        Volver
+      </Link>
     </div>
   );
 };
