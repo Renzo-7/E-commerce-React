@@ -1,3 +1,10 @@
+# Infinity Stones
+
+Mi proyecto es un E-Commerce con productos de Marvel.
+No utilice ninguna dependecia extra fuera de las que vimos en clase.
+
+Al finalizar la compra, luego de llenar los datos personales, incluí un resumen que muestra los detalles de la misma junto con el número de orden.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
