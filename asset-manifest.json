@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Renzo-7/E-commerce-React.git/static/css/main.249a22db.css",
-    "main.js": "/Renzo-7/E-commerce-React.git/static/js/main.626b4cf7.js",
-    "index.html": "/Renzo-7/E-commerce-React.git/index.html",
-    "main.249a22db.css.map": "/Renzo-7/E-commerce-React.git/static/css/main.249a22db.css.map",
-    "main.626b4cf7.js.map": "/Renzo-7/E-commerce-React.git/static/js/main.626b4cf7.js.map"
+    "main.css": "/E-commerce-React/static/css/main.249a22db.css",
+    "main.js": "/E-commerce-React/static/js/main.67e97c91.js",
+    "index.html": "/E-commerce-React/index.html",
+    "main.249a22db.css.map": "/E-commerce-React/static/css/main.249a22db.css.map",
+    "main.67e97c91.js.map": "/E-commerce-React/static/js/main.67e97c91.js.map"
   },
   "entrypoints": [
     "static/css/main.249a22db.css",
-    "static/js/main.626b4cf7.js"
+    "static/js/main.67e97c91.js"
   ]
 }
